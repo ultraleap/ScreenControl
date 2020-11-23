@@ -30,7 +30,7 @@ namespace Ultraleap.ScreenControl.Client
                 _data.CursorPosition,
                 _data.ProgressToClick);
 
-            RelayInputAction(clientInput);
+            BroadcastInputAction(clientInput);
         }
     }
 #endif

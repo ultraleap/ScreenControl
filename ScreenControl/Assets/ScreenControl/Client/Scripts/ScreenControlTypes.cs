@@ -11,7 +11,7 @@ namespace Ultraleap.ScreenControl.Client
             public const string API_HEADER_NAME = "ScApiVersion";
         }
 
-        public readonly struct ClientInputAction
+        public class ClientInputAction
         {
             public readonly long Timestamp;
             public readonly InteractionType InteractionType;

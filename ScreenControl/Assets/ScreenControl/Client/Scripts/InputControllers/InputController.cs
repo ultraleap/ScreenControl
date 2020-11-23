@@ -16,47 +16,16 @@ namespace Ultraleap.ScreenControl.Client
             protected override void Start()
             {
                 base.Start();
-                ConnectionManager.AddConnectionListener(OnCoreConnection);
-            }
-
-            protected void OnCoreConnection()
-            {
-                ConnectionManager.coreConnection.TransmitInputAction += HandleInputAction;
-            }
-
-            /// <summary>
-            /// Used to change the way the input controller receives InputAction events to custom/modified events
-            /// </summary>
-            /// <param name="_customInputActionEvent"></param>
-            public void AddCustomInputActionListener(ref CoreConnection.ClientInputActionEvent _customInputActionEvent)
-            {
-                if (customInputActionListeners == 0)
-                {
-                    ConnectionManager.coreConnection.TransmitInputAction -= HandleInputAction;
-                }
-
-                customInputActionListeners++;
-                _customInputActionEvent += HandleInputAction;
-            }
-
-            public void RemoveCustomInputActionListener(ref CoreConnection.ClientInputActionEvent _customInputActionEvent)
-            {
-                customInputActionListeners--;
-                _customInputActionEvent -= HandleInputAction;
-
-                if(customInputActionListeners == 0)
-                {
-                    OnCoreConnection();
-                }
+                InputActionManager.Instance.TransmitInputAction += HandleInputAction;
             }
 
             protected override void OnDestroy()
             {
                 base.OnDestroy();
 
-                if (ConnectionManager.coreConnection != null)
+                if (InputActionManager.Instance != null)
                 {
-                    ConnectionManager.coreConnection.TransmitInputAction -= HandleInputAction;
+                    InputActionManager.Instance.TransmitInputAction -= HandleInputAction;
                 }
             }
 

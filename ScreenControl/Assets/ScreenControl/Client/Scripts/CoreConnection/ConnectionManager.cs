@@ -12,6 +12,7 @@ namespace Ultraleap.ScreenControl.Client
         DIRECT_CORE_MODULE
     }
 
+    [RequireComponent(typeof(InputActionManager))]
     public class ConnectionManager : MonoBehaviour
     {
         public static ConnectionManager Instance;
@@ -39,18 +40,6 @@ namespace Ultraleap.ScreenControl.Client
             Instance = this;
 
             Connect();
-        }
-
-        public static void AddConnectionListener(Action onConnectFunc)
-        {
-            // TODO: CHECK THIS
-            // Add it to the listener where all members get pinged once connected
-            OnConnected += onConnectFunc;
-
-            if (currentCoreConnection != null)
-            {
-                onConnectFunc();
-            }
         }
 
         public void Connect()

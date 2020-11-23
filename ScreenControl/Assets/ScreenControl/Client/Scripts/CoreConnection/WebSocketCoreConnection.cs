@@ -74,7 +74,7 @@ namespace Ultraleap.ScreenControl.Client
 
         public void HandleInputAction(ClientInputAction _action)
         {
-            RelayInputAction(_action);
+            BroadcastInputAction(_action);
         }
     }
 }
