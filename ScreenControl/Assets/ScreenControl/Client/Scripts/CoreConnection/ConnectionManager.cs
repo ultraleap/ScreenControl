@@ -25,7 +25,7 @@ namespace Ultraleap.ScreenControl.Client
             }
         }
 
-        [SerializeField] ConnectionType connectionType;
+        [SerializeField] ConnectionType connectionType = ConnectionType.WEB_SOCKET;
 
         [Header("WebSocket connection values")]
         [SerializeField] string iPAddress = "127.0.0.1";
