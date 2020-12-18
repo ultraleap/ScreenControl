@@ -37,7 +37,7 @@ namespace Ultraleap.ScreenControl.Client
 
             if (Vector2.Distance(nearestBtnPos, _inputAction.CursorPosition) < snapDistance)
             {
-                _inputAction = new ClientInputAction(_inputAction.Timestamp, _inputAction.InteractionType, _inputAction.HandType, _inputAction.Chirality, _inputAction.InputType, nearestBtnPos, _inputAction.ProgressToClick);
+                _inputAction = new ClientInputAction(_inputAction.Timestamp, _inputAction.InteractionType, _inputAction.HandType, _inputAction.Chirality, _inputAction.InputType, nearestBtnPos, _inputAction.DistanceFromScreen, _inputAction.ProgressToClick);
             }
         }
 
